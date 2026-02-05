@@ -1,9 +1,10 @@
 package com.salesianostriana.dam.ClinicFlow.controller;
 
 import com.salesianostriana.dam.ClinicFlow.Services.CitaService;
-import com.salesianostriana.dam.ClinicFlow.dto.CitaDetailDto;
 import com.salesianostriana.dam.ClinicFlow.dto.CitaListDto;
+import com.salesianostriana.dam.ClinicFlow.dto.CreateCitaRequest;
 import com.salesianostriana.dam.ClinicFlow.model.Cita;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,11 @@ public class citaController {
 
         return citas.map(CitaListDto::of);
 
+    }
+    //ejemplo prueba
+    @PostMapping()
+    public Cita validatedBody(@Valid @RequestBody CreateCitaRequest citaRequest, Long profesional_id, Long paciente_id){
+        return citaService.createCita(citaRequest, profesional_id, paciente_id);
     }
 
    

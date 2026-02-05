@@ -1,4 +1,14 @@
 package com.salesianostriana.dam.ClinicFlow.dto;
 
-public record PacienteSimpleDto(Long id, String nombre, String email) {
-}
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jdk.jfr.Name;
+
+public record PacienteSimpleDto(
+        Long id,
+
+        @NotBlank
+        String nombre,
+
+        @Email
+        String email) {}

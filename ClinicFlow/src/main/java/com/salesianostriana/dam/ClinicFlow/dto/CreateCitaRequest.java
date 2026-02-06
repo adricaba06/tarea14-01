@@ -7,6 +7,7 @@ import jakarta.persistence.Enumerated;
 import java.time.LocalDateTime;
 
 public record CreateCitaRequest(
+
     LocalDateTime fechaHora,
     Estado estado
 ) {
